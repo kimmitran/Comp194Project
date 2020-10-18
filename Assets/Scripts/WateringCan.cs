@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class WateringCan : MonoBehaviour
 {
     float tiltAngleMin = 0.0f;
     float tiltAngleMax = 180.0f;
