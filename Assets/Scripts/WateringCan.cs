@@ -26,17 +26,18 @@ public class WateringCan : MonoBehaviour
     {
         float wateringCanRotation; 
         Vector3 axis;
-        var emission = ParticleSystem.emission;
+        ParticleSystem ps = gameObject.GetComponent<ParticleSystem>();
+        var emission = ps.emission;
         transform.rotation.ToAngleAxis( out wateringCanRotation, out axis );
 
         if (wateringCanRotation > tiltAngleMin && wateringCanRotation < tiltAngleMax)
         {
-            emission = gameObject.GetComponent<ParticleSystem>();
+            
             emission.enabled = true;
         }
         else
         {
-            emission = gameObject.GetComponent<ParticleSystem>();
+            
             emission.enabled = false;
         }
     }
