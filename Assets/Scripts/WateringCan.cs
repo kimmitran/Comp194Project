@@ -29,11 +29,12 @@ public class WateringCan : MonoBehaviour
         ParticleSystem ps = gameObject.GetComponent<ParticleSystem>();
         var emission = ps.emission;
         transform.rotation.ToAngleAxis( out wateringCanRotation, out axis );
-
+       // rotater = GameObject.Find("Flower1");
         if (wateringCanRotation > tiltAngleMin && wateringCanRotation < tiltAngleMax)
         {
-            
+            ps.Play();
             emission.enabled = true;
+           // rotater
         }
         else
         {
