@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ToolInteraction : MonoBehaviour
 {
-    public GameObject shovel;
+    public GameObject hole;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,13 +13,19 @@ public class ToolInteraction : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        if (shovel.transform.position.y == -0.5){
-            Debug.Log("dug a hole");
+    {   
+        
+    }
+    void OnTriggerEnter(Collider lowerLayer){
+        if(lowerLayer.gameObject.name == "Lower Plane"){
+            Debug.Log("shovel hit dirt");
+            Instantiate(hole, new Vector3(3, 1, 3), Quaternion.identity);
         }
         /* 
-        if (shovel object touches lower layer){
-            play digging animation
+        if (shovel object collides with the lower plane){
+            get shovel x transform as int (may need cast)
+            get shovel z transform as int (may need cast)
+            instantiate (hole, new Vector3(var x, set y value, var z), quaternion.identity)
         }
              */
     }
