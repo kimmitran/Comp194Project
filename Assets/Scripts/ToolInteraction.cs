@@ -18,15 +18,19 @@ public class ToolInteraction : MonoBehaviour
     }
     void OnTriggerEnter(Collider lowerLayer){
         if(lowerLayer.gameObject.name == "Lower Plane"){
-            Debug.Log("shovel hit dirt");
-            Instantiate(hole, new Vector3(3, 1, 3), Quaternion.identity);
+
+            Instantiate(hole, new Vector3(176, 3, 219), Quaternion.identity);
         }
+    }
+    //void OnCollisionEnter(Collider lowerLayer){
+        //if(collision.gameObject.name == "shovel");
         /* 
         if (shovel object collides with the lower plane){
-            get shovel x transform as int (may need cast)
-            get shovel z transform as int (may need cast)
+            var x = get shovel x transform as int or float
+            var z = get shovel z transform as int or float
             instantiate (hole, new Vector3(var x, set y value, var z), quaternion.identity)
+            GameObject.FindGameObjectWithTag(shovel).transform.position
         }
              */
-    }
+    //}
 }
