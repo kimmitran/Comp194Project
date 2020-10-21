@@ -6,8 +6,8 @@ using UnityEngine;
 
 public class WateringCan : MonoBehaviour
 {
-    float tiltAngleMin = 50.0f; //was 0
-    float tiltAngleMax = 75.0f; //was 180
+    //float tiltAngleMin = 50.0f; //was 0
+    //float tiltAngleMax = 75.0f; //was 180
     public AudioSource wateringNoise;
     public ParticleSystem waterEffect;
     // Start is called before the first frame update
@@ -47,10 +47,11 @@ public class WateringCan : MonoBehaviour
         float wateringCanRotation; 
         Vector3 axis;
         transform.rotation.ToAngleAxis( out wateringCanRotation, out axis );
-        if (wateringCanRotation > tiltAngleMin && wateringCanRotation < tiltAngleMax){
+        //wateringCanRotation = transform.localEulerAngles.z;
+        if (wateringCanRotation > 50 && wateringCanRotation < 75){
             Debug.Log("water should be playing");
             Debug.Log($"can is tilted at {wateringCanRotation}");
-            waterEffect.Emit(1); //Unity prefers Emit() rather than Play()
+            waterEffect.Emit(1);
             wateringNoise.Play();
         }
         else{

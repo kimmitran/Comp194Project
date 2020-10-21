@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ToolInteraction : MonoBehaviour
 {
-    public GameObject hole;
-    public AudioSource digNoise;
+    public AudioSource shovelPickUp;
+    public AudioSource wateringCanPickUp;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,12 +17,12 @@ public class ToolInteraction : MonoBehaviour
     {   
         
     }
-    void OnTriggerEnter(Collider lowerLayer){
-        if(lowerLayer.gameObject.name == "Lower Plane"){
-            float xCoord = transform.position.x;
-            float zCoord = transform.position.z;
-            digNoise.Play();
-            Instantiate(hole, new Vector3(xCoord, -0.016f, zCoord), Quaternion.identity);
+    void OnTriggerEnter(Collider tool){
+        if (tool.gameObject.name == "Shovel"){
+            shovelPickUp.Play();
+        }
+        else if (tool.gameObject.name == "WateringCanPrefab"){
+            wateringCanPickUp.Play();
         }
     }
 }
