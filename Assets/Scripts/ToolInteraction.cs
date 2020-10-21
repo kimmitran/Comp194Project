@@ -6,6 +6,7 @@ public class ToolInteraction : MonoBehaviour
 {
     public AudioSource shovelPickUp;
     public AudioSource wateringCanPickUp;
+    public GameObject flower;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +24,9 @@ public class ToolInteraction : MonoBehaviour
         }
         else if (tool.gameObject.name == "WateringCanPrefab"){
             wateringCanPickUp.Play();
+        }
+        else if (tool.gameObject.name == "Flower1"){
+            Instantiate(flower);
         }
     }
 }

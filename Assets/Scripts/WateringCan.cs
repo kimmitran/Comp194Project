@@ -24,39 +24,19 @@ public class WateringCan : MonoBehaviour
 
     void FixedUpdate()
     {
-        /* float wateringCanRotation; 
-        Vector3 axis;
-        ParticleSystem ps = gameObject.GetComponent<ParticleSystem>();
-        var emission = ps.emission;
-        transform.rotation.ToAngleAxis( out wateringCanRotation, out axis );
-       // rotater = GameObject.Find("Flower1");
-        if (wateringCanRotation > tiltAngleMin && wateringCanRotation < tiltAngleMax)
-        {
-            ps.Play();
-            wateringNoise.Play();
-            emission.enabled = true;
-           // rotater
-        }
-        else
-        {
-            ps.Stop();
-            wateringNoise.Pause();
-            emission.enabled = false;
-        } */
-        //this is the code I got to work
         float wateringCanRotation; 
         Vector3 axis;
         transform.rotation.ToAngleAxis( out wateringCanRotation, out axis );
         //wateringCanRotation = transform.localEulerAngles.z;
         if (wateringCanRotation > 50 && wateringCanRotation < 75){
-            Debug.Log("water should be playing");
-            Debug.Log($"can is tilted at {wateringCanRotation}");
+            //Debug.Log("water should be playing");
+            //Debug.Log($"can is tilted at {wateringCanRotation}");
             waterEffect.Emit(1);
             wateringNoise.Play();
         }
         else{
-            Debug.Log("no water");
-            Debug.Log($"can is tilted at {wateringCanRotation}");
+            //Debug.Log("no water");
+            //Debug.Log($"can is tilted at {wateringCanRotation}");
             waterEffect.Stop();
             wateringNoise.Stop();
         }
