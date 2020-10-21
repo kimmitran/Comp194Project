@@ -6,13 +6,13 @@ using UnityEngine;
 
 public class WateringCan : MonoBehaviour
 {
-    float tiltAngleMin = 0.0f;
-    float tiltAngleMax = 180.0f;
+    float tiltAngleMin = 50.0f;
+    float tiltAngleMax = 75.0f;
+    public AudioSource wateringNoise;
+    public ParticleSystem waterEffect;
     // Start is called before the first frame update
     void Start()
     {
-
-        
     
     }
 
@@ -26,20 +26,16 @@ public class WateringCan : MonoBehaviour
     {
         float wateringCanRotation; 
         Vector3 axis;
-        ParticleSystem ps = gameObject.GetComponent<ParticleSystem>();
-        var emission = ps.emission;
         transform.rotation.ToAngleAxis( out wateringCanRotation, out axis );
-       // rotater = GameObject.Find("Flower1");
         if (wateringCanRotation > tiltAngleMin && wateringCanRotation < tiltAngleMax)
         {
-            ps.Play();
-            emission.enabled = true;
-           // rotater
+            waterEffect.Emit(1);
+            wateringNoise.Play();
         }
         else
         {
-            
-            emission.enabled = false;
+            waterEffect.Stop();
+            wateringNoise.Stop();
         }
     }
 }
